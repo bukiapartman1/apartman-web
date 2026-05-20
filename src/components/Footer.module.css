@@ -1,0 +1,35 @@
+.footer {
+  background-color: #111;
+  color: #888;
+  padding: 40px 0 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.link {
+  transition: var(--transition);
+}
+
+.link:hover {
+  color: var(--accent-color);
+}
+
+.copyright {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  font-size: 0.8rem;
+}

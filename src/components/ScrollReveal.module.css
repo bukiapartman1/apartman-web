@@ -1,0 +1,25 @@
+.hidden {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fade {
+  transform: translateY(0);
+}
+
+.slide-up {
+  transform: translateY(40px);
+}
+
+.slide-left {
+  transform: translateX(-50px);
+}
+
+.slide-right {
+  transform: translateX(50px);
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}

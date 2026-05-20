@@ -1,0 +1,212 @@
+.adminContainer {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 40px;
+  padding: 20px;
+}
+
+.calendarSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--accent-color);
+  
+  display: grid;
+  grid-template-areas:
+    "name status meta"
+    "period status actions";
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px 20px;
+  max-width: 800px;
+}
+
+.cardCol1, .cardCol3 {
+  display: contents;
+}
+
+.cardName {
+  grid-area: name;
+  margin: 0;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.cardPeriod {
+  grid-area: period;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.cardStatusCol {
+  grid-area: status;
+  text-align: center;
+}
+
+.cardMeta {
+  grid-area: meta;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.cardId {
+  color: var(--accent-color);
+  font-weight: bold;
+  display: block;
+}
+
+.cardDate {
+  display: block;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.badgePending {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.badgeDeposit {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.badgePaid {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.cardActions {
+  grid-area: actions;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btnAction {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnAction:hover {
+  background: #f0f0f0;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formGroup input, .formGroup select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+  .adminContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    grid-template-areas: 
+      "name id"
+      "date date"
+      "period period"
+      "status status"
+      "actions actions";
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  .cardCol1, .cardCol3 {
+    display: contents;
+  }
+  
+  .cardName { grid-area: name; text-align: left; }
+  .cardId { grid-area: id; text-align: right; display: inline; }
+  .cardMeta { display: contents; } /* Unwrap meta on mobile so date can be placed */
+  .cardDate { grid-area: date; text-align: center; }
+  .cardPeriod { grid-area: period; text-align: center; }
+  .cardStatusCol { grid-area: status; display: flex; justify-content: center; }
+  .cardActions { grid-area: actions; display: flex; justify-content: center; flex-direction: column; width: 100%; margin-top: 10px; }
+  
+  .btnAction {
+    width: 100%;
+  }
+
+  .modalOverlay {
+    padding: 10px;
+  }
+  
+  .modal {
+    padding: 20px;
+  }
+}
+
+@keyframes blinkRed {
+  0% { border-color: transparent; box-shadow: none; }
+  50% { border-color: red; box-shadow: 0 0 5px red; }
+  100% { border-color: transparent; box-shadow: none; }
+}
+
+.blinkingBorder {
+  border: 2px solid red;
+  animation: blinkRed 1.5s infinite;
+}
