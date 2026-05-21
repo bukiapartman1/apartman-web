@@ -15,6 +15,10 @@ export async function GET(request: Request) {
       bookings = bookings.filter(b => !b.name.includes('Booking.com'));
     } else if (channel === 'szallas') {
       bookings = bookings.filter(b => !b.name.includes('Szallas.hu'));
+    } else if (channel === 'airbnb') {
+      bookings = bookings.filter(b => !b.name.includes('Airbnb'));
+    } else if (channel === 'custom' || channel === 'egyeb') {
+      bookings = bookings.filter(b => !b.name.includes('Egyéb'));
     }
 
     let icsContent = [

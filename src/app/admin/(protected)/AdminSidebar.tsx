@@ -101,6 +101,9 @@ export default function AdminSidebar() {
               <span className={styles.badge}>{unapprovedCount}</span>
             )}
           </Link>
+          <Link href="/admin/settings" className={styles.navLink} onClick={() => setIsOpen(false)}>
+            ⚙️ Beállítások
+          </Link>
           
           <hr style={{ borderColor: '#333', margin: '15px 0' }} />
           

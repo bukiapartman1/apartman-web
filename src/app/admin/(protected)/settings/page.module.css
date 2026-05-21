@@ -1,0 +1,348 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  border-top: 4px solid var(--accent-color);
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.15);
+}
+
+.helpText {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #d4af37 0%, #c5a880 100%);
+  color: white;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(197, 168, 128, 0.2);
+}
+
+.btnPrimary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(197, 168, 128, 0.3);
+  filter: brightness(1.05);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btnSecondary {
+  background: white;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btnSecondary:hover:not(:disabled) {
+  background-color: #f9f9f9;
+  border-color: #999;
+}
+
+.btnSecondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Kimenő szinkronizáció linkek stílusa */
+.exportList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.exportItem {
+  background: #fdfcf9;
+  border: 1px solid #eae5d9;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.exportChannelTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exportChannelDesc {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.urlRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.urlText {
+  flex: 1;
+  background: #f1ebd9;
+  border: 1px solid #e0d5ba;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #5c4e37;
+  overflow-x: auto;
+  white-space: nowrap;
+  user-select: all;
+}
+
+.copyButton {
+  padding: 8px 16px;
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.copyButton:hover {
+  background-color: var(--accent-color);
+}
+
+.copySuccess {
+  background-color: #2e7d32 !important;
+}
+
+/* Szinkronizációs eredmények */
+.resultsBox {
+  margin-top: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.resultsHeader {
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.resultsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 0.9rem;
+}
+
+.resultRow:last-child {
+  border-bottom: none;
+}
+
+.resultChannel {
+  font-weight: 600;
+  color: #333;
+}
+
+.resultStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.statusSuccess {
+  color: #2e7d32;
+}
+
+.statusError {
+  color: #c62828;
+}
+
+.statusSkipped {
+  color: #f57c00;
+}
+
+/* Üzenet visszajelzések */
+.alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alertSuccess {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.alertError {
+  background-color: #ffeedd;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+/* Animációk */
+.spinner {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+.spinnerDark {
+  border-color: rgba(0, 0, 0, 0.1);
+  border-top-color: #333;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 20px 15px;
+  }
+  
+  .urlRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .copyButton {
+    text-align: center;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+  }
+  
+  .btnPrimary, .btnSecondary {
+    width: 100%;
+  }
+}
