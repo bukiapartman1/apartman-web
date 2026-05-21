@@ -1,0 +1,369 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.titleSection {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.statCard {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  border-top: 4px solid var(--accent-color);
+}
+
+.statTitle {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.statScore {
+  color: var(--accent-color);
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reviewCard {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-left: 5px solid #ccc;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reviewCardApproved {
+  border-left-color: #2e7d32;
+}
+
+.reviewCardUnapproved {
+  border-left-color: #f57c00;
+  background-color: #fffde7;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.guestInfo h3 {
+  font-size: 1.2rem;
+  margin: 0 0 5px 0;
+  color: var(--primary-color);
+}
+
+.stayPeriod {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.headerBadges {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badgeUnapproved {
+  background-color: #ffe0b2;
+  color: #e65100;
+}
+
+.badgeApproved {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.scoreGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  background: #fdfdfd;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+}
+
+.scoreItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.scoreLabel {
+  color: var(--text-light);
+}
+
+.scoreValue {
+  font-weight: bold;
+  color: var(--primary-color);
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.scoreValueHigh {
+  color: white;
+  background: #2e7d32;
+}
+
+.scoreValueMedium {
+  color: white;
+  background: #f57c00;
+}
+
+.scoreValueLow {
+  color: white;
+  background: #c62828;
+}
+
+.commentBox {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.6;
+  border-left: 3px solid #eee;
+  padding-left: 15px;
+  margin: 5px 0;
+  white-space: pre-wrap;
+}
+
+.replyContainer {
+  background-color: #faf9f6;
+  border-radius: 6px;
+  padding: 15px;
+  border: 1px solid #f2e9db;
+  margin-top: 10px;
+}
+
+.replyTitle {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.replyDate {
+  font-weight: normal;
+  color: #999;
+}
+
+.replyText {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.replyForm {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.replyTextarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.replyTextarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.btnApprove {
+  background-color: #2e7d32;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btnApprove:hover {
+  background-color: #1b5e20;
+}
+
+.btnReject {
+  background-color: #f57c00;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btnReject:hover {
+  background-color: #e65100;
+}
+
+.btnDelete {
+  background-color: #ff8a80;
+  color: #b71c1c;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btnDelete:hover {
+  background-color: #ff5252;
+  color: white;
+}
+
+.btnReply {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btnReply:hover {
+  background-color: #a88d66;
+}
+
+.btnCancel {
+  background-color: #f0f0f0;
+  color: #666;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+}
+
+.btnCancel:hover {
+  background-color: #e0e0e0;
+}
+
+.emptyState {
+  background: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .titleSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .reviewCard {
+    padding: 16px;
+  }
+  
+  .reviewHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .headerBadges {
+    align-self: flex-start;
+  }
+  
+  .scoreGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .actionButtons {
+    justify-content: stretch;
+    gap: 8px;
+  }
+  
+  .actionButtons button {
+    flex: 1 1 calc(50% - 4px);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .statCard {
+    padding: 12px 8px;
+  }
+  .statValue {
+    font-size: 1.4rem;
+  }
+  .actionButtons button {
+    flex: 1 1 100%;
+  }
+}

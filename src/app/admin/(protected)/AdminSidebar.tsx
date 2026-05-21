@@ -7,7 +7,29 @@ import styles from './admin.module.css';
 
 export default function AdminSidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [unapprovedCount, setUnapprovedCount] = useState(0);
   const router = useRouter();
+
+  // Új értékelések számának lekérdezése
+  useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        const res = await fetch('/api/admin/reviews/count');
+        if (res.ok) {
+          const data = await res.json();
+          setUnapprovedCount(data.count);
+        }
+      } catch (err) {
+        console.error('Hiba a vélemények darabszámának lekérdezésekor:', err);
+      }
+    };
+
+    fetchCount();
+    
+    // Frissítés 30 másodpercenként
+    const interval = setInterval(fetchCount, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Inaktivitás figyelő (5 perc = 300 000 ms)
   useEffect(() => {
@@ -72,6 +94,12 @@ export default function AdminSidebar() {
           </Link>
           <Link href="/admin/bookings" className={styles.navLink} onClick={() => setIsOpen(false)}>
             📅 Foglalások
+          </Link>
+          <Link href="/admin/reviews" className={styles.navLink} onClick={() => setIsOpen(false)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span>⭐ Vélemények</span>
+            {unapprovedCount > 0 && (
+              <span className={styles.badge}>{unapprovedCount}</span>
+            )}
           </Link>
           
           <hr style={{ borderColor: '#333', margin: '15px 0' }} />

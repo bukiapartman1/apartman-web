@@ -4,6 +4,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { parseISO, format, isAfter, isBefore, isSameDay, addMonths, subMonths } from 'date-fns';
 import { hu } from 'date-fns/locale';
+import styles from './dashboard.module.css';
 
 export default function DashboardPage() {
   const [bookings, setBookings] = useState<any[]>([]);
@@ -71,23 +72,23 @@ export default function DashboardPage() {
   }, [bookings]);
 
   return (
-    <div style={{ padding: '20px 0', width: '98%', margin: '0 auto' }}>
-      <h1 style={{ marginBottom: '30px', color: '#333', textAlign: 'center' }}>Vezérlőpult - Statisztikák</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Vezérlőpult - Statisztikák</h1>
       
       {/* 1. Diagram: Napi bontás a kiválasztott hónapra */}
-      <div style={{ background: 'white', padding: '15px', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', marginBottom: '40px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px', gap: '15px' }}>
-          <h3 style={{ color: '#666', margin: 0, textAlign: 'center' }}>Napi foglaltság ({format(currentDate, 'yyyy. MMMM', { locale: hu })})</h3>
-          <div style={{ display: 'flex', gap: '10px' }}>
+      <div className={styles.chartCard}>
+        <div className={styles.chartHeader}>
+          <h3 className={styles.chartTitle}>Napi foglaltság ({format(currentDate, 'yyyy. MMMM', { locale: hu })})</h3>
+          <div className={styles.btnGroup}>
             <button 
               onClick={() => setCurrentDate(subMonths(currentDate, 1))}
-              style={{ padding: '8px 16px', border: '1px solid #ccc', background: 'white', borderRadius: '4px', cursor: 'pointer' }}
+              className={styles.btn}
             >
               &larr; Előző hónap
             </button>
             <button 
               onClick={() => setCurrentDate(addMonths(currentDate, 1))}
-              style={{ padding: '8px 16px', border: '1px solid #ccc', background: 'white', borderRadius: '4px', cursor: 'pointer' }}
+              className={styles.btn}
             >
               Következő hónap &rarr;
             </button>
@@ -95,7 +96,7 @@ export default function DashboardPage() {
         </div>
         
         {monthData.length > 0 ? (
-          <div style={{ width: '100%', height: 350 }}>
+          <div className={styles.chartWrapper}>
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={monthData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -112,10 +113,10 @@ export default function DashboardPage() {
       </div>
 
       {/* 2. Diagram: Havi összesített éjszakák */}
-      <div style={{ background: 'white', padding: '15px', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
-        <h3 style={{ marginBottom: '20px', color: '#666', textAlign: 'center' }}>Havi Összesített Vendégéjszakák Száma</h3>
+      <div className={`${styles.chartCard} ${styles.chartCardAlt}`}>
+        <h3 className={styles.chartTitle} style={{ marginBottom: '20px' }}>Havi Összesített Vendégéjszakák Száma</h3>
         {yearData.length > 0 ? (
-          <div style={{ width: '100%', height: 350 }}>
+          <div className={styles.chartWrapper}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={yearData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" />

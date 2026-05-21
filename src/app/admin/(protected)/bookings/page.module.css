@@ -159,6 +159,12 @@
 @media (max-width: 900px) {
   .adminContainer {
     grid-template-columns: 1fr;
+    padding: 10px 0;
+    gap: 25px;
+  }
+  .calendarSidebar {
+    width: 100%;
+    max-width: 100%;
   }
 }
 

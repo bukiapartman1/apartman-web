@@ -11,17 +11,35 @@ datasource db {
 }
 
 model Booking {
-  id         String   @id @default(uuid())
-  bookingId  String   @default(uuid())
-  name       String
-  email      String
-  phone      String
-  comment    String?
-  startDate  DateTime
-  endDate    DateTime
-  nights     Int
-  totalPrice Int
-  paidAmount Int      @default(0)
-  status     String   @default("PENDING") // PENDING, DEPOSIT, PAID
-  createdAt  DateTime @default(now())
+  id                String   @id @default(uuid())
+  bookingId         String   @default(uuid())
+  name              String
+  email             String
+  phone             String
+  comment           String?
+  startDate         DateTime
+  endDate           DateTime
+  nights            Int
+  totalPrice        Int
+  paidAmount        Int      @default(0)
+  status            String   @default("PENDING") // PENDING, DEPOSIT, PAID
+  createdAt         DateTime @default(now())
+  reviewRequestSent Boolean  @default(false)
+  review            Review?
+}
+
+model Review {
+  id                  String   @id @default(uuid())
+  bookingId           String   @unique
+  guestName           String
+  ratingCleanliness   Int
+  ratingCommunication Int
+  ratingLocation      Int
+  ratingOverall       Int
+  comment             String   @db.Text
+  reply               String?  @db.Text
+  replyAt             DateTime?
+  approved            Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  booking             Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
 }

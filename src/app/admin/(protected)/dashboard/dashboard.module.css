@@ -1,0 +1,92 @@
+.container {
+  padding: 10px 0;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.chartCard {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+  border-top: 4px solid var(--accent-color);
+}
+
+.chartCardAlt {
+  border-top-color: #2e7d32;
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.chartTitle {
+  color: #555;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  min-width: 0; /* Fontos a ResponsiveContainer-nek */
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .chartCard {
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .chartHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .chartWrapper {
+    height: 250px;
+  }
+}
