@@ -24,6 +24,30 @@ export async function POST(request: Request) {
       auth: { user, pass }
     });
 
+    if (type === 'CONTACT') {
+      const contactHtml = `
+        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #c5a880; border-radius: 8px;">
+          <h2 style="color: #c5a880; border-bottom: 2px solid #c5a880; padding-bottom: 10px; margin-top: 0;">Új kapcsolatfelvételi üzenet</h2>
+          <p><strong>Küldő neve:</strong> ${name}</p>
+          <p><strong>E-mail címe:</strong> ${email}</p>
+          <p><strong>Telefonszáma:</strong> ${phone || 'Nincs megadva'}</p>
+          <br/>
+          <p><strong>Üzenet szövege:</strong></p>
+          <div style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #c5a880; border-radius: 4px; white-space: pre-wrap;">${comment}</div>
+        </div>
+      `;
+
+      await transporter.sendMail({
+        from: `"Apartman Weboldal - Kapcsolat" <${user}>`,
+        to: user,
+        replyTo: email,
+        subject: `Kapcsolatfelvétel: ${name}`,
+        html: contactHtml
+      });
+
+      return NextResponse.json({ success: true });
+    }
+
     const headerImagePath = path.join(process.cwd(), 'public', 'images', 'email', 'email-header.png');
     const emailAttachments = [
       {

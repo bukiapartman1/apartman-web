@@ -1,0 +1,263 @@
+.kapcsolatSection {
+  background-color: var(--secondary-color);
+  padding: 140px 0 80px 0;
+  min-height: 100vh;
+}
+
+.titleContainer {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.pageTitle {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* Contact Info Card */
+.infoCard {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 10px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infoTitle {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 15px;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.iconWrapper {
+  background: rgba(197, 168, 128, 0.1);
+  color: var(--accent-color);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.infoValue {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.infoValue a {
+  transition: color 0.2s;
+}
+
+.infoValue a:hover {
+  color: var(--accent-color);
+}
+
+/* Social Media Section */
+.socialSection {
+  margin-top: 40px;
+}
+
+.socialTitle {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-family: var(--font-heading);
+}
+
+.socialGrid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: white;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.socialLink:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.1);
+}
+
+.facebook { background-color: #1877F2; }
+.messenger { background: linear-gradient(135deg, #00B2FE 0%, #006AFF 30%, #9F01EA 70%, #FF007F 100%); }
+.whatsapp { background-color: #25D366; }
+.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285ae5 90%); }
+
+/* Contact Form Card */
+.formCard {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 10px 30px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.formInput, .formTextarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fafafa;
+  font-family: var(--font-body);
+}
+
+.formInput:focus, .formTextarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.2);
+  background-color: white;
+}
+
+.formTextarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.submitBtn:hover {
+  background-color: var(--accent-color);
+}
+
+.submitBtn:active {
+  transform: scale(0.98);
+}
+
+.submitBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.statusMessage {
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+/* Map Container */
+.mapContainer {
+  background: white;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 10px 30px;
+  overflow: hidden;
+  height: 450px;
+  position: relative;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .infoCard {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pageTitle {
+    font-size: 2.2rem;
+  }
+  .infoCard, .formCard {
+    padding: 25px;
+  }
+}
