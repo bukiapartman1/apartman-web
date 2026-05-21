@@ -22,6 +22,7 @@ function BookingForm() {
     phone: '',
     comment: ''
   });
+  const [acceptedAszf, setAcceptedAszf] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Vissza a főoldalra ha nincs dátum kiválasztva
@@ -180,11 +181,30 @@ function BookingForm() {
           <p><strong>Telefon:</strong> {formData.phone}</p>
           {formData.comment && <p><strong>Megjegyzés:</strong> {formData.comment}</p>}
           
+          <div className={styles.checkboxContainer}>
+            <input 
+              type="checkbox" 
+              id="acceptedAszf" 
+              name="acceptedAszf" 
+              checked={acceptedAszf} 
+              onChange={(e) => setAcceptedAszf(e.target.checked)} 
+              className={styles.checkboxInput}
+            />
+            <label htmlFor="acceptedAszf" className={styles.checkboxLabel}>
+              A <a href="/aszf" target="_blank" rel="noopener noreferrer" className={styles.checkboxLink}>Harmónia vendégház Általános Szerződési Feltételeit (ÁSZF)</a> elfogadom és megértettem.
+            </label>
+          </div>
+
           <p className={styles.disclaimer}>Kérjük, ellenőrizze az adatokat! Ha minden helyes, kattintson a Véglegesítés gombra.</p>
 
           <div className={styles.buttonGroup}>
             <button type="button" className={styles.btnSecondary} onClick={() => setStep(1)} disabled={isSubmitting}>Vissza</button>
-            <button type="button" className={styles.btnPrimary} onClick={submitBooking} disabled={isSubmitting}>
+            <button 
+              type="button" 
+              className={styles.btnPrimary} 
+              onClick={submitBooking} 
+              disabled={isSubmitting || !acceptedAszf}
+            >
               {isSubmitting ? 'Küldés folyamatban...' : 'Foglalás Véglegesítése'}
             </button>
           </div>

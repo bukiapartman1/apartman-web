@@ -17,7 +17,9 @@ export default function Footer() {
           <br/>
           Készítette: <a href="https://rekalaca-webdesign.hu/" target="_blank" rel="noopener noreferrer" style={{ color: '#c5a880', textDecoration: 'none' }}>rekalaca-webdesign</a>
           <br/><br/>
-          <a href="/admin/login" style={{ color: '#555', fontSize: '0.8rem', textDecoration: 'none' }}>Admin Belépés</a>
+          <a href="/aszf" style={{ color: '#555', fontSize: '0.8rem', textDecoration: 'none', marginRight: '15px' }}>ÁSZF</a>
+          |
+          <a href="/admin/login" style={{ color: '#555', fontSize: '0.8rem', textDecoration: 'none', marginLeft: '15px' }}>Admin Belépés</a>
         </div>
       </div>
     </footer>
