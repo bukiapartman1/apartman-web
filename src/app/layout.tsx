@@ -16,9 +16,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Harmónia Vendégház",
+    "url": "https://apartman-web.vercel.app/",
+    "creator": {
+      "@type": "Organization",
+      "name": "rekalaca-webdesign",
+      "url": "https://rekalaca-webdesign.hu",
+      "description": "Weboldal készítés kiadó szállásnak, apartmannak, nyaralónak, hétvégi háznak Szabolcs-Szatmár-Bereg megyében, Nyíregyházán és környékén, a Balatonnál, a Velencei-tónál és országosan, egyedi kódolással, időpontfoglaló rendszerrel, szállásfoglaló oldalak összekapcsolásával és automata üzenetekkel."
+    }
+  };
+
   return (
     <html lang="hu">
       <body className={`${montserrat.variable} ${playfair.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Header />
         {children}
       </body>
