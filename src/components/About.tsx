@@ -37,8 +37,8 @@ export default function About() {
           <ScrollReveal animation="slide-right" delay={200}>
             <div className={styles.imageContainer}>
               <Image 
-                src="/images/gallery/bedroom.png" 
-                alt="Hálószoba belső tér" 
+                src="/images/gallery/kulso/k2.jpg" 
+                alt="Vendégház modern külső nézete" 
                 width={800} 
                 height={600} 
                 className={styles.image}

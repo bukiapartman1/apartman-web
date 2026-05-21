@@ -5,19 +5,23 @@ import styles from './Gallery.module.css';
 import Image from 'next/image';
 
 export default function Gallery() {
-  const [activeTab, setActiveTab] = useState<'kulo' | 'belso'>('belso');
+  const [activeTab, setActiveTab] = useState<'kulso' | 'belso'>('belso');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const imagesBelso = [
-    { src: '/images/gallery/bedroom.png', alt: 'Hálószoba' },
-    { src: '/images/gallery/bathroom.png', alt: 'Fürdőszoba' },
-    { src: '/images/gallery/interior_living.png', alt: 'Nappali' },
-    { src: '/images/gallery/interior_kitchen.png', alt: 'Konyha' },
+    { src: '/images/gallery/belso/b1.jpg', alt: 'Konyha' },
+    { src: '/images/gallery/belso/b2.jpg', alt: 'Hálószoba' },
+    { src: '/images/gallery/belso/b3.png', alt: 'Modern konyha és étkező' },
+    { src: '/images/gallery/belso/b4.png', alt: 'Modern fürdőszoba' },
+    { src: '/images/gallery/belso/b5.png', alt: 'Modern hálószoba' },
   ];
 
   const imagesKulso = [
-    { src: '/images/gallery/exterior_garden.png', alt: 'Udvar és Kert' },
-    { src: '/images/hero/hero.png', alt: 'Külső látkép' },
+    { src: '/images/gallery/kulso/k1.jpg', alt: 'Vendégház külső és kert' },
+    { src: '/images/gallery/kulso/k2.jpg', alt: 'Modern villa és udvar' },
+    { src: '/images/gallery/kulso/k3.jpg', alt: 'Bungalow naplementében' },
+    { src: '/images/gallery/kulso/k4.jpg', alt: 'Erdei kisház udvara' },
+    { src: '/images/gallery/kulso/k5.jpg', alt: 'Hangulatos veranda és gyalogút' },
   ];
 
   const currentImages = activeTab === 'belso' ? imagesBelso : imagesKulso;
@@ -60,12 +64,12 @@ export default function Gallery() {
               Belső fotók
             </button>
             <button 
-              className={`${styles.tabBtn} ${activeTab === 'kulo' ? styles.active : ''}`}
-              onClick={() => setActiveTab('kulo')}
+              className={`${styles.tabBtn} ${activeTab === 'kulso' ? styles.active : ''}`}
+              onClick={() => setActiveTab('kulso')}
             >
               Külső fotók
             </button>
-            <div className={`${styles.slider} ${activeTab === 'kulo' ? styles.slideRight : ''}`}></div>
+            <div className={`${styles.slider} ${activeTab === 'kulso' ? styles.slideRight : ''}`}></div>
           </div>
         </div>
 
