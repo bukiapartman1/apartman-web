@@ -8,9 +8,10 @@ export default function Footer() {
       <div className="container">
         <div className={styles.brand}>Premium Apartman</div>
         <div className={styles.links}>
-          <a href="#about" className={styles.link}>Rólunk</a>
-          <a href="#gallery" className={styles.link}>Galéria</a>
-          <a href="#booking" className={styles.link}>Foglalás</a>
+          <a href="/#about" className={styles.link}>Rólunk</a>
+          <a href="/galeria" className={styles.link}>Galéria</a>
+          <a href="/#calendar" className={styles.link}>Foglalás</a>
+          <a href="/aszf" className={styles.link}>ÁSZF</a>
         </div>
         <div className={styles.copyright}>
           &copy; {currentYear} Premium Apartman. Minden jog fenntartva.

@@ -61,7 +61,7 @@ export default function ContactForm() {
 
   return (
     <div className={styles.formCard}>
-      <h2 className={styles.infoTitle}>Írjon nekünk üzenetet</h2>
+      <h2 className={styles.formTitle}>Írjon nekünk üzenetet</h2>
       <form onSubmit={handleSubmit} id="contact-form">
         <div className={styles.formGroup}>
           <label htmlFor="name-input" className={styles.formLabel}>Név *</label>
