@@ -7,9 +7,11 @@ interface ScrollRevealProps {
   children: React.ReactNode;
   animation?: "fade" | "slide-up" | "slide-left" | "slide-right";
   delay?: number;
+  className?: string;
+  width?: string;
 }
 
-export default function ScrollReveal({ children, animation = "slide-up", delay = 0 }: ScrollRevealProps) {
+export default function ScrollReveal({ children, animation = "slide-up", delay = 0, className, width }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
 
@@ -39,8 +41,8 @@ export default function ScrollReveal({ children, animation = "slide-up", delay =
   return (
     <div
       ref={domRef}
-      className={`${styles.hidden} ${styles[animation]} ${isVisible ? styles.visible : ""}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`${styles.hidden} ${styles[animation]} ${isVisible ? styles.visible : ""} ${className || ""}`}
+      style={{ transitionDelay: `${delay}ms`, width }}
     >
       {children}
     </div>

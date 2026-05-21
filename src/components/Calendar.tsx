@@ -174,19 +174,19 @@ export default function Calendar() {
   return (
     <section className={styles.calendarSection} id="calendar">
       <div className="container" style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <ScrollReveal animation="slide-up">
+        <ScrollReveal animation="slide-up" width="100%">
           <h2 className={styles.calendarTitle}>Foglalási naptár</h2>
         </ScrollReveal>
         
         <div className={styles.calendarContainer}>
-          <ScrollReveal animation="fade" delay={100}>
+          <ScrollReveal animation="fade" delay={100} width="100%">
             <div className={styles.controls}>
               <button className={styles.controlBtn} onClick={prevMonth}>&larr; Előző</button>
               <button className={styles.controlBtn} onClick={nextMonth}>Következő &rarr;</button>
             </div>
           </ScrollReveal>
           
-          <ScrollReveal animation="slide-up" delay={300}>
+          <ScrollReveal animation="slide-up" delay={300} width="100%">
             <div className={styles.monthsGrid}>
               {Array.from({ length: monthsToShow }).map((_, i) => 
                 renderMonth(addMonths(currentDate, i), i)
@@ -194,7 +194,7 @@ export default function Calendar() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal animation="slide-up" delay={500}>
+          <ScrollReveal animation="slide-up" delay={500} width="100%">
             <div className={styles.actionArea}>
               <div className={styles.summaryText}>
                 {selectedStart && selectedEnd 

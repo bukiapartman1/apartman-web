@@ -68,8 +68,10 @@ export default function Header() {
     return null;
   }
 
+  const isHomepage = pathname === '/';
+
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+    <header className={`${styles.header} ${(isScrolled || !isHomepage) ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <Link href="/" className={styles.logoLink} onClick={closeMenu}>
           {/* A logo.png a public/images/hero/ mappába kerül majd */}

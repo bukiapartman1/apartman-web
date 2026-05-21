@@ -198,3 +198,45 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 768px) {
+  .calendarSection {
+    min-height: auto;
+    padding: 60px 0;
+    scroll-margin-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendarTitle {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  .monthBlock {
+    padding: 12px;
+  }
+  .daysHeader {
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+  }
+  .daysGrid {
+    gap: 2px;
+  }
+  .dayCell {
+    font-size: 0.9rem;
+  }
+  .controlBtn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  .actionArea {
+    margin-top: 25px;
+  }
+  .summaryText {
+    font-size: 1rem;
+  }
+  .calendarBtn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
