@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
+import { siteConfig } from '@/lib/siteConfig';
 import styles from '../app/kapcsolat/kapcsolat.module.css';
 
 export default function ContactForm() {
@@ -10,7 +12,7 @@ export default function ContactForm() {
     phone: '',
     message: ''
   });
-  
+  const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -23,6 +25,8 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!acceptedPrivacy) return;
+
     setStatus('loading');
 
     try {
@@ -36,7 +40,7 @@ export default function ContactForm() {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          comment: formData.message // Using comment field for email backend
+          comment: formData.message
         })
       });
 
@@ -50,6 +54,7 @@ export default function ContactForm() {
           phone: '',
           message: ''
         });
+        setAcceptedPrivacy(false);
       } else {
         setStatus('error');
       }
@@ -86,7 +91,7 @@ export default function ContactForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            placeholder="Az Ön e-mail címe"
+            placeholder="pelda@email.hu"
             className={styles.formInput}
           />
         </div>
@@ -112,15 +117,30 @@ export default function ContactForm() {
             required
             value={formData.message}
             onChange={handleChange}
-            placeholder="Ide írja az üzenetét..."
+            placeholder="Kérdése van? Írja meg nekünk..."
             className={styles.formTextarea}
           />
+        </div>
+
+        {/* GDPR Adatkezelési hozzájárulás */}
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', margin: '15px 0' }}>
+          <input 
+            type="checkbox" 
+            id="contact-privacy-check" 
+            checked={acceptedPrivacy}
+            onChange={(e) => setAcceptedPrivacy(e.target.checked)}
+            required
+            style={{ marginTop: '4px', cursor: 'pointer', accentColor: '#c5a880' }}
+          />
+          <label htmlFor="contact-privacy-check" style={{ fontSize: '0.85rem', color: '#aaa', cursor: 'pointer', lineHeight: '1.4' }}>
+            Elolvastam és elfogadom a <Link href="/adatkezeles" target="_blank" style={{ color: '#c5a880', textDecoration: 'underline' }}>{siteConfig.shortName} Adatkezelési tájékoztatóját</Link>, és hozzájárulok a megadott adataim kezeléséhez a kapcsolatfelvétel céljából. *
+          </label>
         </div>
 
         <button 
           type="submit" 
           id="submit-contact-btn"
-          disabled={status === 'loading'} 
+          disabled={status === 'loading' || !acceptedPrivacy} 
           className={styles.submitBtn}
         >
           {status === 'loading' ? 'Küldés folyamatban...' : 'Üzenet elküldése'}
@@ -128,13 +148,13 @@ export default function ContactForm() {
 
         {status === 'success' && (
           <div className={`${styles.statusMessage} ${styles.success}`} id="contact-success-msg">
-            Köszönjük! Az üzenetét sikeresen elküldtük. Hamarosan válaszolunk.
+            Köszönjük! Az üzenetét sikeresen megkaptuk, hamarosan válaszolunk Önnek a megadott e-mail címen.
           </div>
         )}
 
         {status === 'error' && (
           <div className={`${styles.statusMessage} ${styles.error}`} id="contact-error-msg">
-            Hiba történt az üzenet küldése során. Kérjük, próbálja meg később vagy lépjen velünk kapcsolatba telefonon!
+            Hiba történt az üzenet küldése során. Kérjük, próbálja meg később vagy hívjon minket telefonon!
           </div>
         )}
       </form>

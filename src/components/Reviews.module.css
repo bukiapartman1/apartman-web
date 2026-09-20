@@ -160,11 +160,10 @@
 
 .replyBox {
   background-color: var(--white);
-  border-left: 3px solid var(--accent-color);
-  padding: 15px;
-  border-radius: 0 8px 8px 0;
-  margin-top: 5px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+  padding: 16px 18px;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px 0px, rgba(197, 168, 128, 0.15) 0px 0px 0px 1px;
 }
 
 .replyHeader {

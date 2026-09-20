@@ -18,6 +18,8 @@ export default function Calendar() {
   const [selectedStart, setSelectedStart] = useState<Date | null>(null);
   const [selectedEnd, setSelectedEnd] = useState<Date | null>(null);
   
+  const [minStayNights, setMinStayNights] = useState(2);
+  
   // Állapot a foglalások tárolására
   const [bookings, setBookings] = useState<Array<{ start: Date, end: Date }>>([]);
 
@@ -28,24 +30,34 @@ export default function Calendar() {
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Foglalások lekérése
-    const fetchBookings = async () => {
+    // Beállítások és foglalások lekérése
+    const loadData = async () => {
       try {
-        const res = await fetch('/api/bookings');
-        if (res.ok) {
-          const data = await res.json();
-          // Dátumok átalakítása Date objektummá
+        const [bookRes, setRes] = await Promise.all([
+          fetch('/api/bookings'),
+          fetch('/api/settings/public')
+        ]);
+
+        if (bookRes.ok) {
+          const data = await bookRes.json();
           const formatted = data.map((b: any) => ({
             start: parseISO(b.startDate),
             end: parseISO(b.endDate)
           }));
           setBookings(formatted);
         }
+
+        if (setRes.ok) {
+          const settings = await setRes.json();
+          if (settings.minStayNights) {
+            setMinStayNights(settings.minStayNights);
+          }
+        }
       } catch (err) {
-        console.error('Error fetching bookings', err);
+        console.error('Error fetching calendar data', err);
       }
     };
-    fetchBookings();
+    loadData();
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -106,6 +118,12 @@ export default function Calendar() {
 
   const handleBookingStart = () => {
     if (selectedStart && selectedEnd) {
+      const msPerDay = 1000 * 60 * 60 * 24;
+      const nights = Math.round((selectedEnd.getTime() - selectedStart.getTime()) / msPerDay);
+      if (nights < minStayNights) {
+        alert(`A minimális foglalható időtartam ${minStayNights} éjszaka. Kérjük, válasszon hosszabb időszakot!`);
+        return;
+      }
       const startStr = format(selectedStart, 'yyyy-MM-dd');
       const endStr = format(selectedEnd, 'yyyy-MM-dd');
       router.push(`/foglalas?start=${startStr}&end=${endStr}`);
@@ -173,6 +191,7 @@ export default function Calendar() {
 
   return (
     <section className={styles.calendarSection} id="calendar">
+      <span id="naptar" style={{ position: 'relative', top: '-100px', visibility: 'hidden' }}></span>
       <div className="container" style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <ScrollReveal animation="slide-up" width="100%">
           <h2 className={styles.calendarTitle}>Foglalási naptár</h2>

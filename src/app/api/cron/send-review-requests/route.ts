@@ -32,7 +32,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ message: 'Nincs kiküldendő véleménykérő levél.' });
     }
 
-    const user = process.env.GMAIL_USER || 'bukiapartman1@gmail.com';
+    const user = process.env.GMAIL_USER || 'rekalaca@gmail.com';
     const pass = process.env.GMAIL_PASS;
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://apartman-web.vercel.app';
 

@@ -59,10 +59,9 @@
 
 .reviewCard {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  border-left: 5px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 20px 0px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px;
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
@@ -70,11 +69,11 @@
 }
 
 .reviewCardApproved {
-  border-left-color: #2e7d32;
+  border-top: 3px solid #2e7d32;
 }
 
 .reviewCardUnapproved {
-  border-left-color: #f57c00;
+  border-top: 3px solid #f57c00;
   background-color: #fffde7;
 }
 
@@ -171,10 +170,12 @@
   font-size: 0.95rem;
   color: var(--text-main);
   line-height: 1.6;
-  border-left: 3px solid #eee;
-  padding-left: 15px;
-  margin: 5px 0;
+  background: #f9f9f9;
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin: 8px 0;
   white-space: pre-wrap;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 8px 0px;
 }
 
 .replyContainer {

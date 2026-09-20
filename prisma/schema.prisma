@@ -20,8 +20,13 @@ model Booking {
   startDate         DateTime
   endDate           DateTime
   nights            Int
+  adults            Int      @default(2)
+  children          Int      @default(0)
+  ifaAmount         Int      @default(0)
   totalPrice        Int
   paidAmount        Int      @default(0)
+  paymentMethod     String   @default("TRANSFER") // TRANSFER, BARION
+  barionPaymentId   String?
   status            String   @default("PENDING") // PENDING, DEPOSIT, PAID
   createdAt         DateTime @default(now())
   reviewRequestSent Boolean  @default(false)
