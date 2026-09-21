@@ -42,7 +42,7 @@ export const siteConfig = {
     zip: '9737',
     country: 'Magyarország',
     phone: '+36 30 123 4567',
-    email: 'rekalaca@gmail.com',
+    email: 'gava.tibor74@gmail.com',
     owner: 'Teszt János E.V.',
     taxNumber: '12345678-1-18',
     ntak: 'EG26000001 (Magánszálláshely)',
